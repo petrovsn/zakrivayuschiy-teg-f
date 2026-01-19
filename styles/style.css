@@ -13,4 +13,216 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font);
+  font-variation-settings: 'wght' var(--card-text-font-weight);
+  background-image: var(--background-static);
+  background-size: cover;
+}
+
+
+/*Доработайте шапку.
+Блок резиновый. Используйте clamp для расчёта ширины блока. Ширину блока можно будет переиспользовать для остальных блоков проекта, 
+поэтому лучше использовать отдельный класс и вынести расчёт в css-переменную.
+Другие резиновые элементы — логотип, заголовок, отступы в шапке. Используйте clamp.
+Чтобы браузер не воспринимал как теги символы < и >, используйте HTML-мнемоники &lt; и &gt;*/
+
+.page_block {
+  display: flex;
+  inline-size: clamp(375px, 700px, 1440px);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border: 2px solid #000000;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+
+  margin-top: 100px;
+  padding-top: 130px;
+  padding-bottom: 130px;
+  margin-bottom: 98px;
+  gap: 20px;
+}
+
+.header h1 {
+  display: flex;
+  font-size: 65px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header label {
+  display: flex;
+  font-size: 23px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Рекомендуем сначала создать одну карточку:
+По ширине карточки тоже резиновые. Переиспользуйте подход с шириной блока из шапки проекта.
+Иконку с сердцем поместите внутрь тега <button>. Обратите внимание на комментарии в прекоде, 
+там описано, какие классы задать иконке. Если класс будет не тот, то потом лайкнуть иконку не получится.
+
+Содержимое кнопок Like, «Сохранить на память» и «ОК» оберните в <span> с отдельным классом button__text — позже это поможет вам сделать анимации. 
+Класс button__text также используется для работы скрипта, который при клике или выборе иконки лайка на кнопке Like меняет текст с Like на Unlike.
+Для иконки внутри кнопки «Сохранить на память» используйте тег use и опишите в SVG-файле symbol, 
+а вот иконку сердца придётся вставить в код инлайново. Подробнее об этом в шаге с анимациями. 
+На стадии вёрстки лейаута просто вставьте туда нужную SVG-иконку, чтобы прийти к неанимированному, 
+похожему на макет результату. В Figma эта иконка лежит отдельно от остальных, используйте её на этапе построения лейаута.*/
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card h2 {
+  font-family: var(--main-font);
+  font-variation-settings: 'wght' var(--card-title-font-weight);
+  font-style: Black;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  margin-left: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+/* Блок  c изображением*/
+.image_container {
+  position: relative;
+}
+
+.card .image_container .image_label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  font-family: var(--accent-font);
+  font-weight: 400px;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  text-transform: uppercase;
+  mix-blend-mode: hard-light;
+
+  opacity: 0.5;
+}
+
+
+@supports((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+  .card .image_container .image_label {
+    -webkit-text-stroke: 1px var(--card-image-text-stroke-color);
+    text-stroke: 1px var(--card-image-text-stroke-color);
+    text-shadow: none;
+  }
+}
+
+.card .image_container .cropped-image {
+  width: var(--card-image-width);
+  /* Ширина области отображения */
+  height: var(--card-image-height);
+  /* Высота области отображения */
+  object-fit: cover;
+  /* Кадрирует изображение, заполняя область */
+  object-position: center right;
+  /* Центрирует область кадрирования */
+}
+
+/*область фильров*/
+.card:nth-child(1) .image_container .cropped-image {
+  filter: sepia(1) contrast(2) brightness(200%);
+}
+
+
+/* Основное содержание*/
+.card .card__body {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  gap: 25px;
+}
+
+.card .card__body article {
+  display: flex;
+  flex-direction: column;
+
+  font-family: var(--main-font);
+  font-variation-settings: 'wght' var(--card-text-font-weight) sz;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0%;
+
+  gap: 25px;
+}
+
+/* Блок кнопок */
+.card .card__body .button_layer {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: 5px
+}
+
+.card .card__body .button_layer .card__icon-button {
+  border: none;
+  background-color: transparent;
+}
+
+.card .card__body .button_layer .card__like-button {
+  font-family: var(--accent-font);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 90%;
+  letter-spacing: 0%;
+  border: 2px solid var(--Themes-mainColor, #000000);
+  padding: 13px 37px 13px 34px;
+  background-color: transparent;
+}
+
+/*footer*/
+
+.footer {
+  display: flex
+}
+
+.footer .save_button {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 100px;
+
+  padding: 18px 20px 10px 20px;
+
+  border: 2px solid black;
+  background-color: white;
+
+  font-family: var(--accent-font);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 90%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+
+  gap: 8px;
+  
+  align-items: center;
+}
+
+.footer .save_button svg{
+  margin-bottom: 5px;
 }
