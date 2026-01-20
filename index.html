@@ -11,7 +11,10 @@
   <link rel="stylesheet" href="./styles/style.css" />
   <link rel="stylesheet" href="./styles/animations.css" />
 
-  <!---Превратите SVG с изображением дискеты в symbol. Вам нужно будет использовать эту иконку так.-->
+  <!---Медиазапрос для узких экранов - в отдельном файле-->
+  <link rel="stylesheet" href="./styles/style_mobile.css" />
+  
+
   <link rel="icon" href="favicon/favicon.ico" sizes="any">
   <link rel="icon" href="favicon/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="favicon/favicon.png">
@@ -349,7 +352,8 @@
     </div>
 
     <footer class="footer">
-      <button class="save_button">
+      <button class="save_button" type="button" onclick="window['save-dialog-id'].showModal()"
+        aria-controls="save-dialog-id">
         <svg width="21" height="21" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
           <use href="#floppy-disk"></use>
         </svg>
@@ -358,10 +362,27 @@
     </footer>
 
   </main>
+  <!---Подключение скриптов-->
   <script src="./scripts/like.js"></script>
+
+
+
 </body>
 
 </html>
+
+<!---Диалоговое окно-->
+<dialog id="save-dialog-id" class="save_dialog">
+  <form>
+    <div class="save_dialog__content">
+      <svg viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <use href="#floppy-disk"></use>
+      </svg>
+      <label>Вставьте дискету, чтобы продолжить</label>
+    </div>
+    <button class="save_dialog__ok_button">OK</button>
+  </form>
+</dialog>
 
 <!---Превратите SVG с изображением дискеты в symbol-->
 <svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">

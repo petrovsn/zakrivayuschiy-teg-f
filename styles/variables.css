@@ -1,5 +1,5 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
-:root{
+:root {
     --main-font: "Inter", san-serif;
     --accent-font: "Press Start 2P", san-serif;
 
@@ -10,19 +10,29 @@
     /*Создайте переменную для градиента и используйте её как значение свойства background-image для страницы. Фон должен оставаться фиксированным при прокрутке страницы.*/
     /*Первый градиент должен создавать повторяющиеся полоски слева направо шириной в 2px: одна полоска цветом #d3d3d3; другая — прозрачная, такого же размера.*/
     --background-static: repeating-linear-gradient(90deg, #d3d3d3 0px 2px, rgba(0, 0, 0, 0) 2px 4px),
-                    repeating-linear-gradient(#d3d3d3 0px 2px, rgba(0, 0, 0, 0) 2px 4px),
+        repeating-linear-gradient(#d3d3d3 0px 2px, rgba(0, 0, 0, 0) 2px 4px),
 
-                    /*В третьем градиенте цвет должен равномерно меняться сверху вниз — от  #e7e7e7 к #1a1a1a.
+        /*В третьем градиенте цвет должен равномерно меняться сверху вниз — от  #e7e7e7 к #1a1a1a.
                     Именно этот последний градиент создаст эффект изменения насыщенности цвета. 
                     Мы немного продлили воздействие самого светлого оттенка и начали менять цвет 
                     от 0.01% всей высоты градиента, чтобы усилить эффект.*/
-                    linear-gradient(#e7e7e7, #e7e7e7 0.01%, #1a1a1a 100%);
+        linear-gradient(#e7e7e7, #e7e7e7 0.01%, #1a1a1a 100%);
 
 
     /*Область для картинки на карточке*/
-    --card-image-width: 696px;
-    --card-image-height: 696px;
+    --card-image-width: clamp(371px, 50vw, 696px);
+    --card-image-height: clamp(371px, 50vw, 696px);
 
     /*Цвет обводки лейбла*/
-    --card-image-text-stroke-color: #FFFFFF
+    --card-image-text-stroke-color: #FFFFFF;
+
+    /*Ширина диалогового окна*/
+    --dialog-window-width: 353px;
+}
+
+@media (width <=375px) {
+    :root {
+        --dialog-window-width: 341px;
+       
+    }
 }

@@ -1,0 +1,20 @@
+
+/*более оптимальная точка перехода для шрифта в заголовке*/
+@media (width <=900px) {
+  .header h1 {
+    font-size: 49px !important;
+  }
+
+  .header label {
+
+  font-size: 14px;
+}
+}
+
+
+@media (max-width: 720px) {
+    .footer .save_button{
+      flex-direction: column;
+    }
+
+}
