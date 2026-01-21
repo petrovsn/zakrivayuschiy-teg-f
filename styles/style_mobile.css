@@ -11,7 +11,7 @@
 }
 }
 
-
+/*более оптимальная точка перехода для шрифта в заголовке*/
 @media (max-width: 720px) {
     .footer .save_button{
       flex-direction: column;
