@@ -176,25 +176,35 @@
   flex-direction: row;
   justify-content: end;
   align-items: center;
-  gap: 5px
+  gap: 5px;
 }
 
 .card .card__body .button_layer .card__icon-button {
-  border: none;
+  display: flex;
+  border: 2px solid transparent;
   background-color: transparent;
+  height: 100%;
+  overflow: visible;
+  padding-left: 0px;
+  padding-right: 0px;
 }
+
 
 .card .card__body .button_layer .card__like-button {
   font-family: var(--accent-font);
+  inline-size: 130px;
   font-weight: 400;
   font-size: 14px;
   line-height: 90%;
   letter-spacing: 0%;
-  border: 2px solid var(--Themes-mainColor, #000000);
-  padding: 13px 37px 13px 34px;
+  border: 2px solid #000000;
+  padding-top: 13px;
+  padding-bottom: 13px;
   background-color: transparent;
   transition: box-shadow 0.3s ease;
 }
+
+
 
 /*footer*/
 
@@ -290,6 +300,7 @@ form {
 .save_dialog .save_dialog__ok_button:focus {
   outline: none;
   box-shadow: 2px 2px 0px 0px black;
+  transition: box-shadow 0.3s ease;
 }
 
 
@@ -321,9 +332,12 @@ form {
   width: 100%;
   height: 100%;
   background-color: black;
-  transform: translateX(-100%); /* Начинаем слева за пределами кнопки */
-  transition: transform 0.5s ease-in-out; /* Плавный переход */
-  z-index: -1; /* Отправляем под текст */
+  transform: translateX(-100%);
+  /* Начинаем слева за пределами кнопки */
+  transition: transform 0.5s ease-in-out;
+  /* Плавный переход */
+  z-index: -1;
+  /* Отправляем под текст */
 }
 
 .footer .save_button:hover::before,
@@ -336,10 +350,96 @@ form {
 .footer .save_button:hover,
 .card .card__body .button_layer .card__like-button:hover,
 .save_dialog .save_dialog__ok_button:hover {
-  color: white; /* Белый текст для контраста с черным фоном */
+  color: white;
+  /* Белый текст для контраста с черным фоном */
 }
 
 /* Для иконки в кнопке сохранить */
 .footer .save_button:hover svg {
-  fill: white; /* Меняем цвет иконки на белый */
+  fill: white;
+  /* Меняем цвет иконки на белый */
+}
+
+
+/*Фокус на кнопке с сердцем
+Для оборачивающей сердце кнопки описан только фокус. Все остальные состояния будут производиться внутри самой иконки.
+В состоянии focus-visible у кнопки появляется рамка — сплошная линия акцентного цвета шириной два пикселя. 
+Не забудьте убрать обводку у состояния focus. 
+Граница должна появляться плавно: 0.3s ease. Переход должен срабатывать при событии фокуса и при его снятии, 
+описывайте настройки в основном селекторе. 
+Проконтролируйте размеры, при фокусе высота сходится с кнопкой справа.*/
+
+.card .card__body .button_layer .card__icon-button:focus-visible {
+  outline: none;
+  border: 2px solid var(--heart-border-color);
+  transition: border-color 0.3s ease;
+}
+
+/*Шаг 9. Анимация сердца*/
+
+.like-icon .contour {
+  transition: fill 0.1s linear;
+}
+
+.like-icon .main-body {
+  transition: fill 0.3s linear;
+}
+
+.like-icon .core {
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon .sparks {
+  opacity: 0;
+}
+
+/*Сердцевина заполняется первой, исчезает с задержкой.
+В демке анимации  в фигме переход резкий, из текста задания
+следует плавность из-за ненулевого времени перехода. */
+.like-icon:hover .core {
+  fill: black;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: black;
+  transition: fill 0.3s 0.05s linear;
+}
+
+/*Состояние нажатия кнопки*/
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/*Клик по иконке*/
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/*запуск анимации пульса и вспышек*/
+.like-icon.is-liked g{
+  transform-origin: center;
+  animation: heart_pulse 1s;
+  animation-delay: 0.1s;
+}
+
+.like-icon.is-liked .sparks{
+  animation: sparks_animation 1s;
 }

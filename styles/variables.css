@@ -28,6 +28,17 @@
 
     /*Ширина диалогового окна*/
     --dialog-window-width: 353px;
+
+    /*Цвет границы кнопки с сердцем*/
+    --heart-border-color: rgb(0, 0, 0);
+
+    /*Цвета для анимации кнопок*/
+    --contour-color: rgb(0,0,0);
+    --heart-body-color: transparent;
+    --heart-core-color: transparent;
+    --animation-fill-color: red;
+    --sparkles_opacity: 0;
+
 }
 
 @media (width <=375px) {
