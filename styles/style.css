@@ -143,12 +143,6 @@
   /* Центрирует область кадрирования */
 }
 
-/*область фильров*/
-.card:nth-child(1) .image_container .cropped-image {
-  filter: sepia(1) contrast(2) brightness(200%);
-}
-
-
 /* Основное содержание*/
 .card .card__body {
   display: flex;
@@ -204,6 +198,10 @@
   transition: box-shadow 0.3s ease;
 }
 
+/*Шаг 6. Фильтры*/
+.card_freetrack .image_container .cropped-image {
+  filter: sepia(1);
+}
 
 
 /*footer*/
