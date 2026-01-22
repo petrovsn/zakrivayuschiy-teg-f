@@ -119,7 +119,7 @@
   vertical-align: middle;
   text-transform: uppercase;
   mix-blend-mode: hard-light;
-
+  z-index: 1;
   opacity: 0.5;
 }
 
@@ -139,8 +139,37 @@
   /* Высота области отображения */
   object-fit: cover;
   /* Кадрирует изображение, заполняя область */
-  object-position: center right;
+  object-position: center center;
   /* Центрирует область кадрирования */
+}
+
+/*Шаг 6. Фильтры*/
+.card_freetrack .image_container .cropped-image {
+  filter: sepia(80%);
+}
+
+.card_1sprint_whitepaper .image_container .cropped-image {
+  filter: saturate(158%);
+}
+
+.card_2sprint_chase .image_container .cropped-image{
+  filter: opacity(0.8)  saturate(200%); 
+}
+
+.card_2support_team .image_container .cropped-image{
+  filter: saturate(158%) sepia(10%);
+}
+
+.card_3secondary_strategies .image_container .cropped-image{
+  filter: grayscale(1);
+}
+
+.card_3tired_hands .image_container .cropped-image{
+  filter: hue-rotate(-90deg) blur(1px);
+}
+
+.card_4hereiam .image_container .cropped-image{
+  filter: invert(0.1);
 }
 
 /* Основное содержание*/
@@ -156,7 +185,7 @@
   flex-direction: column;
 
   font-family: var(--main-font);
-  font-variation-settings: 'wght' var(--card-text-font-weight) sz;
+  font-variation-settings: 'wght' var(--card-text-font-weight);
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0%;
@@ -198,10 +227,6 @@
   transition: box-shadow 0.3s ease;
 }
 
-/*Шаг 6. Фильтры*/
-.card_freetrack .image_container .cropped-image {
-  filter: sepia(1);
-}
 
 
 /*footer*/

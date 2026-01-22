@@ -20,8 +20,8 @@
 
 
     /*Область для картинки на карточке*/
-    --card-image-width: clamp(371px, 50vw, 696px);
-    --card-image-height: clamp(371px, 50vw, 696px);
+    --card-image-width: calc(clamp(371px, 50vw, 696px) - 4px);
+    --card-image-height: calc(clamp(371px, 50vw, 696px) - 4px);
 
     /*Цвет обводки лейбла*/
     --card-image-text-stroke-color: #FFFFFF;
