@@ -99,11 +99,13 @@
   margin-left: 10px;
   margin-top: 6px;
   margin-bottom: 6px;
+  
 }
 
 /* Блок  c изображением*/
 .image_container {
   position: relative;
+  border-top: 2px solid black;
 }
 
 .card .image_container .image_label {
@@ -223,7 +225,7 @@
   border: 2px solid #000000;
   padding-top: 13px;
   padding-bottom: 13px;
-  background-color: transparent;
+  background-color: white;
   transition: box-shadow 0.3s ease;
 }
 
@@ -298,7 +300,7 @@ form {
 }
 
 .save_dialog .save_dialog__ok_button {
-  background-color: transparent;
+  background-color: white;
   padding-top: 12px;
   padding-bottom: 12px;
   transition: box-shadow 0.3s ease;
@@ -308,6 +310,7 @@ form {
   width: 39px;
   height: 39px;
   flex-shrink: 0;
+  align-self: center;
 }
 
 .save_dialog::backdrop {
@@ -340,8 +343,10 @@ form {
 .save_dialog .save_dialog__ok_button {
   position: relative;
   overflow: hidden;
-  z-index: 1;
+  z-index: 0;
   transition: color 0.5s ease-in-out;
+  background-color: white;
+  
 }
 
 
@@ -354,13 +359,14 @@ form {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   transform: translateX(-100%);
   /* Начинаем слева за пределами кнопки */
   transition: transform 0.5s ease-in-out;
   /* Плавный переход */
   z-index: -1;
   /* Отправляем под текст */
+  
 }
 
 .footer .save_button:hover::before,
@@ -369,19 +375,18 @@ form {
   transform: translateX(0);
 }
 
-/* Меняем цвет текста при наведении */
-.footer .save_button:hover,
-.card .card__body .button_layer .card__like-button:hover,
-.save_dialog .save_dialog__ok_button:hover {
-  color: white;
-  /* Белый текст для контраста с черным фоном */
+.button__text{
+  z-index: -1;
+  color:rgb(255, 255, 255);
+  mix-blend-mode: difference;
 }
 
 /* Для иконки в кнопке сохранить */
 .footer .save_button:hover svg {
-  fill: white;
+mix-blend-mode: difference;
   /* Меняем цвет иконки на белый */
 }
+
 
 
 /*Фокус на кнопке с сердцем

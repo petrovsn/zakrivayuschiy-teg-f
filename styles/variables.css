@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
     --main-font: "Inter", san-serif;
-    --accent-font: "Press Start 2P", san-serif;
+    --accent-font: "Press Start 2P", fantasy;
 
     /*Задайте две переменные с именами этих шрифтов в файле styles/variables.css. Одну — для основного шрифта Inter, а другую — для акцентного PressStart2P.*/
     --card-text-font-weight: 410;

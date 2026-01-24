@@ -1,4 +1,3 @@
-
 /*более оптимальная точка перехода для шрифта в заголовке*/
 @media (width <=900px) {
   .header h1 {
@@ -7,14 +6,22 @@
 
   .header label {
 
-  font-size: 14px;
-}
+    font-size: 14px;
+  }
 }
 
-/*более оптимальная точка перехода для шрифта в заголовке*/
+
 @media (max-width: 720px) {
-    .footer .save_button{
-      flex-direction: column;
-    }
+  .footer .save_button {
+    flex-direction: column;
+  }
+
+  .header {
+    margin-top: 100px;
+    padding-top: 122px;
+    padding-bottom: 122px;
+    margin-bottom: 98px;
+    gap: 20px;
+  }
 
 }
