@@ -23,7 +23,7 @@
 <body class="page">
   <header class="header page_block">
     <h1 class="title">&lt;/html&gt;</h1>
-    <label class="subtitle">Закрывающий тег</label>
+    <p class="subtitle">Закрывающий тег</p>
   </header>
   <main class="main">
     <div class="card page_block card_freetrack">
@@ -32,7 +32,7 @@
       <!---Изображение-->
       <div class="image_container">
         <span class="image_label">&lt;/repeat&gt;</span>
-        <img src="images/grove_street.jpg" alt="Грув стрит" class="cropped-image" />
+        <img src="images/grove_street.jpg" alt="Грув стрит" class="cropped-image sepia_filter" />
       </div>
       <!---Содержимое-->
       <div class="card__body">
@@ -69,7 +69,7 @@
             </svg>
 
           </button>
-          <button type='button' class="card__like-button">
+          <button type='button' class="card__like-button common_button">
             <span class="button__text">Like</span>
           </button>
         </span>
@@ -82,7 +82,7 @@
       <!---Изображение-->
       <div class="image_container">
         <p class="image_label">&lt;/plan&gt;</p>
-        <img src="images/white_paper.webp" alt="Белый лист" class="cropped-image" />
+        <img src="images/white_paper.webp" alt="Белый лист" class="cropped-image bright_saturation" />
       </div>
       <!---Содержимое-->
       <div class="card__body">
@@ -121,7 +121,7 @@
             </svg>
 
           </button>
-          <button type='button' class="card__like-button">
+          <button type='button' class="card__like-button common_button">
             <span class="button__text">Like</span>
           </button>
         </span>
@@ -172,7 +172,7 @@
             </svg>
 
           </button>
-          <button type='button' class="card__like-button">
+          <button type='button' class="card__like-button common_button">
             <span class="button__text">Like</span>
           </button>
         </span>
@@ -186,7 +186,7 @@
       <!---Изображение-->
       <div class="image_container">
         <span class="image_label">&lt;/perfect&gt;</span>
-        <img src="images/perfect_balance.jpg" alt="сооружение в равновесии" class="cropped-image" />
+        <img src="images/perfect_balance.jpg" alt="сооружение в равновесии" class="cropped-image dimmed_saturation" />
       </div>
       <!---Содержимое-->
       <div class="card__body">
@@ -225,7 +225,7 @@
             </svg>
 
           </button>
-          <button type='button' class="card__like-button">
+          <button type='button' class="card__like-button common_button">
             <span class="button__text">Like</span>
           </button>
         </span>
@@ -240,7 +240,7 @@
       <!---Изображение-->
       <div class="image_container">
         <span class="image_label">&lt;/html&gt;</span>
-        <img src="images/one_team.png" alt="Товарищи" class="cropped-image" />
+        <img src="images/one_team.png" alt="Товарищи" class="cropped-image bright_sepia" />
       </div>
       <!---Содержимое-->
       <div class="card__body">
@@ -278,7 +278,7 @@
             </svg>
 
           </button>
-          <button type='button' class="card__like-button">
+          <button type='button' class="card__like-button common_button">
             <span class="button__text">Like</span>
           </button>
         </span>
@@ -292,7 +292,7 @@
       <!---Изображение-->
       <div class="image_container">
         <span class="image_label">&lt;/html&gt;</span>
-        <img src="images/chess.jpg" alt="Многомерные шахматы" class="cropped-image" />
+        <img src="images/chess.jpg" alt="Многомерные шахматы" class="cropped-image grayscale" />
       </div>
       <!---Содержимое-->
       <div class="card__body">
@@ -329,7 +329,7 @@
             </svg>
 
           </button>
-          <button type='button' class="card__like-button">
+          <button type='button' class="card__like-button common_button">
             <span class="button__text">Like</span>
           </button>
         </span>
@@ -343,7 +343,7 @@
       <!---Изображение-->
       <div class="image_container">
         <span class="image_label">&lt;/html&gt;</span>
-        <img src="images/time.jpg" alt="Дали. Постоянство памяти." class="cropped-image" />
+        <img src="images/time.jpg" alt="Дали. Постоянство памяти." class="cropped-image strange_colors" />
       </div>
       <!---Содержимое-->
       <div class="card__body">
@@ -383,7 +383,7 @@
             </svg>
 
           </button>
-          <button type='button' class="card__like-button">
+          <button type='button' class="card__like-button common_button">
             <span class="button__text">Like</span>
           </button>
         </span>
@@ -397,7 +397,7 @@
       <!---Изображение-->
       <div class="image_container">
         <span class="image_label">&lt;/html&gt;</span>
-        <img src="images/maze.jpg" alt="автобус ночью" class="cropped-image" />
+        <img src="images/maze.jpg" alt="автобус ночью" class="cropped-image inverted_colors" />
       </div>
       <!---Содержимое-->
       <div class="card__body">
@@ -435,19 +435,20 @@
             </svg>
 
           </button>
-          <button type='button' class="card__like-button">
+          <button type='button' class="card__like-button common_button">
             <span class="button__text">Like</span>
           </button>
         </span>
       </div>
     </div>
 
-    <button type='button' class="save_button" onclick="window['save-dialog-id'].showModal()"
+    <button type='button' class="save_button common_button" onclick="window['save-dialog-id'].showModal()"
       aria-controls="save-dialog-id">
-      <svg width="21" height="21" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <use href="svg/floppy.svg#floppy-disk"></use>
-      </svg>
-      Сохранить на память
+      <span class="button__text"><svg width="21" height="21" viewBox="0 0 39 39" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <use href="svg/floppy.svg#floppy-disk"></use>
+        </svg></span>
+      <span class="button__text">Сохранить на память</span>
     </button>
 
 
@@ -462,12 +463,15 @@
     <form>
       <div class="save_dialog__content">
         <svg viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <use href="#floppy-disk"></use>
+          <use href="svg/floppy.svg#floppy-disk"></use>
         </svg>
         <p>Вставьте дискету, чтобы продолжить</p>
       </div>
-      <button type='submit' class="save_dialog__ok_button">OK</button>
+      <button type='submit' class="save_dialog__ok_button common_button">
+        <span class="button__text">OK</span>
+      </button>
     </form>
   </dialog>
 </body>
+
 </html>

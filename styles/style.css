@@ -49,14 +49,14 @@
   gap: 20px;
 }
 
-.header h1 {
+.title {
   display: flex;
   font-size: 65px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.header label {
+.subtitle {
   display: flex;
   font-size: 23px;
   margin-left: auto;
@@ -99,7 +99,7 @@
   margin-left: 10px;
   margin-top: 6px;
   margin-bottom: 6px;
-  
+
 }
 
 /* Блок  c изображением*/
@@ -108,10 +108,11 @@
   border-top: 2px solid black;
 }
 
-.card .image_container .image_label {
+.image_label {
   position: absolute;
   top: 25px;
   right: 25px;
+  text-shadow: 2px 2px white;
 
   font-family: var(--accent-font);
   font-weight: 400px;
@@ -123,8 +124,9 @@
   mix-blend-mode: hard-light;
   z-index: 1;
   opacity: 0.5;
-}
 
+  color: black;
+}
 
 @supports((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
   .card .image_container .image_label {
@@ -134,7 +136,7 @@
   }
 }
 
-.card .image_container .cropped-image {
+.cropped-image {
   width: var(--card-image-width);
   /* Ширина области отображения */
   height: var(--card-image-height);
@@ -146,43 +148,43 @@
 }
 
 /*Шаг 6. Фильтры*/
-.card_freetrack .image_container .cropped-image {
+.sepia_filter {
   filter: sepia(80%);
 }
 
-.card_1sprint_whitepaper .image_container .cropped-image {
+.bright_saturation {
   filter: saturate(158%);
 }
 
-.card_2sprint_chase .image_container .cropped-image{
-  filter: opacity(0.8)  saturate(200%); 
+.dimmed_saturation {
+  filter: opacity(0.8) saturate(200%);
 }
 
-.card_2support_team .image_container .cropped-image{
+.bright_sepia {
   filter: saturate(158%) sepia(10%);
 }
 
-.card_3secondary_strategies .image_container .cropped-image{
+.grayscale {
   filter: grayscale(1);
 }
 
-.card_3tired_hands .image_container .cropped-image{
+.strange_colors {
   filter: hue-rotate(-90deg) blur(1px);
 }
 
-.card_4hereiam .image_container .cropped-image{
+.inverted_colors {
   filter: invert(0.1);
 }
 
 /* Основное содержание*/
-.card .card__body {
+.card__body {
   display: flex;
   flex-direction: column;
   padding: 25px;
   gap: 25px;
 }
 
-.card .card__body article {
+.card__body article {
   display: flex;
   flex-direction: column;
 
@@ -196,7 +198,7 @@
 }
 
 /* Блок кнопок */
-.card .card__body .button_layer {
+.button_layer {
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -204,7 +206,7 @@
   gap: 5px;
 }
 
-.card .card__body .button_layer .card__icon-button {
+.card__icon-button {
   display: flex;
   border: 2px solid transparent;
   background-color: transparent;
@@ -215,57 +217,27 @@
 }
 
 
-.card .card__body .button_layer .card__like-button {
-  font-family: var(--accent-font);
+.card__like-button {
   inline-size: 130px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 90%;
-  letter-spacing: 0%;
-  border: 2px solid #000000;
   padding-top: 13px;
   padding-bottom: 13px;
-  background-color: white;
-  transition: box-shadow 0.3s ease;
 }
 
 
-
-/*footer*/
-
-.footer {
-  display: flex;
-}
-
-.footer .save_button {
+.save_button {
   display: flex;
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0px;
   margin-bottom: 100px;
-
   padding: 15px 20px 15px 20px;
-
-  border: 2px solid black;
-
-  background-color: white;
-  font-family: var(--accent-font);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 90%;
-  letter-spacing: 0%;
   vertical-align: middle;
-
-
   gap: 8px;
-
   align-items: center;
-
-  transition: box-shadow 0.3s ease;
 }
 
-.footer .save_button svg {
+.save_button svg {
   margin-bottom: 5px;
 }
 
@@ -292,21 +264,20 @@ form {
   margin: 0px;
 }
 
-.save_dialog .save_dialog__content {
+.save_dialog__content {
   display: flex;
   flex-direction: row;
   height: fit-content;
   gap: 20px;
 }
 
-.save_dialog .save_dialog__ok_button {
-  background-color: white;
+.save_dialog__ok_button {
   padding-top: 12px;
   padding-bottom: 12px;
   transition: box-shadow 0.3s ease;
 }
 
-.save_dialog .save_dialog__content svg {
+.save_dialog__content svg {
   width: 39px;
   height: 39px;
   flex-shrink: 0;
@@ -320,10 +291,19 @@ form {
 
 /*Шаг 7. Эффекты кнопок. Эффекты на кнопках при фокусе и наведении& имеют разную плавность. 
 Кроме того, эффекты кнопок Like, «Сохранить на память» и «ОК» отличаются от эффекта кнопки, оборачивающей сердечко.*/
+.common_button {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 90%;
+  letter-spacing: 0%;
+  border: 2px solid #000000;
+  font-weight: 400;
+  transition: box-shadow 0.3s ease;
+  background-color: white;
+}
 
-.footer .save_button:focus,
-.card .card__body .button_layer .card__like-button:focus,
-.save_dialog .save_dialog__ok_button:focus {
+
+.common_button:focus {
   outline: none;
   box-shadow: 2px 2px 0px 0px black;
   transition: box-shadow 0.3s ease;
@@ -338,21 +318,17 @@ form {
 Переход должен срабатывать при событии наведения и при его снятии. 
 Настройки описывайте в основном селекторе псевдоэлемента.*/
 
-.footer .save_button,
-.card .card__body .button_layer .card__like-button,
-.save_dialog .save_dialog__ok_button {
+.common_button{
   position: relative;
   overflow: hidden;
   z-index: 0;
   transition: color 0.5s ease-in-out;
   background-color: white;
-  
+
 }
 
 
-.footer .save_button::before,
-.card .card__body .button_layer .card__like-button::before,
-.save_dialog .save_dialog__ok_button::before {
+.common_button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -366,24 +342,22 @@ form {
   /* Плавный переход */
   z-index: -1;
   /* Отправляем под текст */
-  
+
 }
 
-.footer .save_button:hover::before,
-.card .card__body .button_layer .card__like-button:hover::before,
-.save_dialog .save_dialog__ok_button:hover::before {
+.common_button:hover::before {
   transform: translateX(0);
 }
 
-.button__text{
+.button__text {
   z-index: -1;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   mix-blend-mode: difference;
 }
 
 /* Для иконки в кнопке сохранить */
-.footer .save_button:hover svg {
-mix-blend-mode: difference;
+.save_button:hover svg {
+  mix-blend-mode: difference;
   /* Меняем цвет иконки на белый */
 }
 
@@ -397,7 +371,7 @@ mix-blend-mode: difference;
 описывайте настройки в основном селекторе. 
 Проконтролируйте размеры, при фокусе высота сходится с кнопкой справа.*/
 
-.card .card__body .button_layer .card__icon-button:focus-visible {
+.card__icon-button:focus-visible {
   outline: none;
   border: 2px solid var(--heart-border-color);
   transition: border-color 0.3s ease;
@@ -462,12 +436,12 @@ mix-blend-mode: difference;
 }
 
 /*запуск анимации пульса и вспышек*/
-.like-icon.is-liked g{
+.like-icon.is-liked g {
   transform-origin: center;
   animation: heart_pulse 1s;
   animation-delay: 0.1s;
 }
 
-.like-icon.is-liked .sparks{
+.like-icon.is-liked .sparks {
   animation: sparks_animation 1s;
 }
