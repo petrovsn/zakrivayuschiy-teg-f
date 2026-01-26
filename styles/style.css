@@ -9,7 +9,14 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+p {
+  margin-bottom: 25px;
+}
 
+.save_dialog__content p{
+  margin-bottom: 0px;
+}
+ 
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -214,6 +221,7 @@
   overflow: visible;
   padding-left: 0px;
   padding-right: 0px;
+  transition: border-color 0.3s ease;
 }
 
 
@@ -223,6 +231,11 @@
   padding-bottom: 13px;
 }
 
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
 
 .save_button {
   display: flex;
@@ -306,7 +319,6 @@ form {
 .common_button:focus {
   outline: none;
   box-shadow: 2px 2px 0px 0px black;
-  transition: box-shadow 0.3s ease;
 }
 
 
@@ -353,6 +365,7 @@ form {
   z-index: -1;
   color: rgb(255, 255, 255);
   mix-blend-mode: difference;
+  text-wrap-mode: nowrap;
 }
 
 /* Для иконки в кнопке сохранить */
@@ -374,7 +387,7 @@ form {
 .card__icon-button:focus-visible {
   outline: none;
   border: 2px solid var(--heart-border-color);
-  transition: border-color 0.3s ease;
+  
 }
 
 /*Шаг 9. Анимация сердца*/

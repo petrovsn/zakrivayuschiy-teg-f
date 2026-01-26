@@ -39,7 +39,17 @@
     --animation-fill-color: red;
     --sparkles_opacity: 0;
 
+    /*Icon Size*/
+    --icon-size: 21;
+
 }
+
+@media (max-width: 720px) {
+    :root{
+        --icon-size: 28;
+    }
+}
+
 
 @media (width <=375px) {
     :root {
